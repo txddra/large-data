@@ -24,6 +24,7 @@
 // - Remember, the data should output to the terminal
 
 
+
 // DATASET:
 let data = {
     results: [{
@@ -264,3 +265,47 @@ let data = {
         version: '1.3'
     }
 };
+
+// // let is
+// const womenOnly = function(data){
+//     return new Promise((resolve,reject)=>{
+// let isWoman = data.results.filter((person)=>{
+//  person.gender ==='female';  
+// })
+// // let isWoman = true;
+// if(isWoman){
+// resolve(data)
+// }else{
+//     reject('Something went wrong') 
+// }
+// womenOnly.then(({data})=>
+// console.log(data)
+// ).catch((err)=>
+// console.log(err)
+
+//     )
+// })}
+
+
+const getWomen =(myData)=>{
+    // let woman = true;
+    let isWoman = myData.results.filter((person)=>console.log(person.gender === 'female'))
+
+    return new Promise((resolve, reject)=>{
+        if(!isWoman){
+reject('This is a guy..')
+        }else{
+            resolve(myData)
+        }
+    })
+}
+getWomen(data).then((received)=>{
+data.forEach((recieved)=>{
+console.log(`${received.name}`)}
+)}).then(()=>{
+console.log('returns the correct thing')
+}).catch((err)=>{
+    console.log(err)
+});
+
+    getWomen(data)
